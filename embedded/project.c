@@ -152,7 +152,9 @@ void *threadFunc3(void *data) // 블루투스 모듈 사용 쓰레드
         if (count >= 10 && flag == 1)
         {
             write(fd_serial, danger, strlen(danger));
+            pthread_mutex_lock(&mid);
             count = 0;
+            pthread_mutex_unlock(&mid);
         }
         if (serialDataAvail(fd_serial))
         {                                //읽을 데이터가 존재한다면,
