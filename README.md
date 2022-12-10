@@ -10,7 +10,7 @@
 팀원 : 김성태
 ## 개발환경
 - 임베디드 시스템 개발: raspberryPi 4.0의 C18
-- 앱 개발: Android Studio
+- 앱 개발: Android Studio 의 Kotlin
 ## 전체 시스템 구조
 ## 주요 기능
 초음파 센서를 활용하여 주변 물체와의 거리를 지속 검사 ->
