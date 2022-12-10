@@ -19,7 +19,9 @@ void serialWrite(const int fd, const unsigned char c); // 1Byte 데이터를 송
 int flag = 0;
 int res = 0;
 int count = 0;
+int nocount = 0;
 const char *danger = " stranger is coming!!\n";
+const char *noDanger = "  \n";
 
 pthread_mutex_t mid;
 
@@ -95,6 +97,7 @@ void *threadFunc1(void *data) //초음파 센서 사용 쓰레드
             pthread_mutex_lock(&mid);
             count = 0;
             res = 0;
+            nocount++;
             printf("res is now 0\n");
             pthread_mutex_unlock(&mid);
         }
@@ -154,6 +157,13 @@ void *threadFunc3(void *data) // 블루투스 모듈 사용 쓰레드
             write(fd_serial, danger, strlen(danger));
             pthread_mutex_lock(&mid);
             count = 0;
+            pthread_mutex_unlock(&mid);
+        }
+        if (nocount >= 10 || flag == 0)
+        {
+            write(fd_serial, noDanger, strlen(noDanger));
+            pthread_mutex_lock(&mid);
+            nocount = 0;
             pthread_mutex_unlock(&mid);
         }
         if (serialDataAvail(fd_serial))
