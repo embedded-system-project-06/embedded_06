@@ -35,5 +35,5 @@ Kotlin + C -> 임베디드 시스템과 블루투스 통신 앱 개발
 
 해결방법: 소리의 주파수를 조절하여 물체와의 거리가 가까울수록 높은 주파수의 음을 출력하도록 구현
 ## 데모
-- https://youtu.be/hf7Y9lKc_uUhttps://youtu.be/hf7Y9lKc_uU
+- https://youtu.be/hf7Y9lKc_uU
 
